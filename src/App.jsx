@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { 
   Heart, Shield, Phone, Mail, MapPin, Menu, X, Users, 
   Calendar, CheckCircle, Award, Stethoscope, Sparkles, 
@@ -8,10 +7,8 @@ import {
 
 export default function App() {
   // --- STATE MANAGEMENT ---
-  // Tracks the currently active mobile menu drawer state (open/closed)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Tracks form inputs for the Inquiry Form
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -20,11 +17,8 @@ export default function App() {
     message: ''
   });
 
-  // Tracks inquiry submission status (success alert message)
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  // Gallery filter state ('all', 'facility', 'activities', 'success')
   const [galleryFilter, setGalleryFilter] = useState('all');
 
   // --- HANDLERS ---
@@ -37,16 +31,31 @@ export default function App() {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate sending inquiry to umeddeaddiction@gmail.com
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-      // Reset form after successful submission
-      setFormData({ name: '', phone: '', email: '', category: 'Alcohol Addiction', message: '' });
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 1000);
+    const serviceID = 'service_snmtoyn';
+    const templateID = 'template_cglx1hs';
+    const publicKey = 'EzONJEEoZA03ueR29';
+
+    const templateParams = {
+      to_email: 'umeddeaddiction@gmail.com',
+      from_name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      category: formData.category,
+      message: formData.message,
+    };
+
+    window.emailjs.send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        setLoading(false);
+        setSubmitted(true);
+        setFormData({ name: '', phone: '', email: '', category: 'Alcohol Addiction', message: '' });
+        setTimeout(() => setSubmitted(false), 5000);
+      })
+      .catch((error) => {
+        setLoading(false);
+        alert('Failed to send inquiry. Please call us directly at +91 70384 97457.');
+        console.error('EmailJS Error:', error);
+      });
   };
 
   // Gallery items dataset
@@ -58,39 +67,6 @@ export default function App() {
     { id: 5, type: 'success', title: 'Recovery Milestone Celebration', url: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80', category: 'Success Stories' },
     { id: 6, type: 'facility', title: 'Comfortable Residential Rooms', url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80', category: 'Facility' },
   ];
-
-  // Inside your App component:
-const handleInquirySubmit = (e) => {
-  e.preventDefault();
-  setLoading(true);
-
-  // Replace these with your actual EmailJS credentials
-  const serviceID = 'service_snmtoyn';
-  const templateID = 'template_cglx1hs';
-  const publicKey = 'EzONJEEoZA03ueR29';
-
-  const templateParams = {
-    to_email: 'umeddeaddiction@gmail.com',
-    from_name: formData.name,
-    phone: formData.phone,
-    email: formData.email,
-    category: formData.category,
-    message: formData.message,
-  };
-
-  emailjs.send(serviceID, templateID, templateParams, publicKey)
-    .then((response) => {
-      setLoading(false);
-      setSubmitted(true);
-      setFormData({ name: '', phone: '', email: '', category: 'Alcohol Addiction', message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
-    })
-    .catch((error) => {
-      setLoading(false);
-      alert('Failed to send inquiry. Please call us directly at +91 70384 97457.');
-      console.error('EmailJS Error:', error);
-    });
-};
 
   const filteredGallery = galleryFilter === 'all' 
     ? galleryItems 
@@ -429,7 +405,6 @@ const handleInquirySubmit = (e) => {
                 <input 
                   type="email" 
                   name="email" 
-                   
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="your.email@example.com"
