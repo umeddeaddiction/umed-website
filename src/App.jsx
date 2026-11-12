@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { 
   Heart, Shield, Phone, Mail, MapPin, Menu, X, Users, 
   Calendar, CheckCircle, Award, Stethoscope, Sparkles, 
@@ -57,6 +58,39 @@ export default function App() {
     { id: 5, type: 'success', title: 'Recovery Milestone Celebration', url: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80', category: 'Success Stories' },
     { id: 6, type: 'facility', title: 'Comfortable Residential Rooms', url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80', category: 'Facility' },
   ];
+
+  // Inside your App component:
+const handleInquirySubmit = (e) => {
+  e.preventDefault();
+  setLoading(true);
+
+  // Replace these with your actual EmailJS credentials
+  const serviceID = 'YOUR_SERVICE_ID';
+  const templateID = 'YOUR_TEMPLATE_ID';
+  const publicKey = 'YOUR_PUBLIC_KEY';
+
+  const templateParams = {
+    to_email: 'umeddeaddiction@gmail.com',
+    from_name: formData.name,
+    phone: formData.phone,
+    email: formData.email,
+    category: formData.category,
+    message: formData.message,
+  };
+
+  emailjs.send(serviceID, templateID, templateParams, publicKey)
+    .then((response) => {
+      setLoading(false);
+      setSubmitted(true);
+      setFormData({ name: '', phone: '', email: '', category: 'Alcohol Addiction', message: '' });
+      setTimeout(() => setSubmitted(false), 5000);
+    })
+    .catch((error) => {
+      setLoading(false);
+      alert('Failed to send inquiry. Please call us directly at +91 70384 97457.');
+      console.error('EmailJS Error:', error);
+    });
+};
 
   const filteredGallery = galleryFilter === 'all' 
     ? galleryItems 
