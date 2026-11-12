@@ -65,9 +65,9 @@ const handleInquirySubmit = (e) => {
   setLoading(true);
 
   // Replace these with your actual EmailJS credentials
-  const serviceID = 'YOUR_SERVICE_ID';
-  const templateID = 'YOUR_TEMPLATE_ID';
-  const publicKey = 'YOUR_PUBLIC_KEY';
+  const serviceID = 'service_snmtoyn';
+  const templateID = 'template_cglx1hs';
+  const publicKey = 'EzONJEEoZA03ueR29';
 
   const templateParams = {
     to_email: 'umeddeaddiction@gmail.com',
