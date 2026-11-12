@@ -449,49 +449,56 @@ export default function App() {
       </section>
 
       {/* ================= CONTACT US SECTION ================= */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="space-y-6">
-            <span className="text-teal-400 font-semibold uppercase tracking-wider text-sm">Get In Touch</span>
-            <h2 className="text-3xl font-bold">Contact Umed Foundation</h2>
-            <p className="text-slate-300">
-              Reach out to our helpline or visit our campus for a confidential discussion. We are here to help 24/7.
-            </p>
-            <div className="space-y-4 pt-4">
-              <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-teal-400 shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-semibold">Center Address</h4>
-                  <p className="text-slate-300 text-sm">Umed Foundation Rehab Centre, Near Green Valley, Main Highway, India</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <Phone className="w-6 h-6 text-teal-400 shrink-0" />
-                <div>
-                  <h4 className="font-semibold">Helpline Numbers</h4>
-                  <p className="text-slate-300 text-sm">+91 70384 97457 </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <Mail className="w-6 h-6 text-teal-400 shrink-0" />
-                <div>
-                  <h4 className="font-semibold">Official Email</h4>
-                  <p className="text-slate-300 text-sm">umeddeaddiction@gmail.com</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 space-y-4">
-            <h3 className="text-xl font-bold text-teal-300">Need Immediate Emergency Intervention?</h3>
-            <p className="text-slate-300 text-sm">
-              If someone is experiencing acute withdrawal symptoms or requires urgent medical assistance, our crisis response team is available round the clock.
-            </p>
-            <a href="tel:+917038497457" className="inline-flex items-center justify-center gap-2 w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition shadow-md">
-              <Phone className="w-5 h-5" /> Call Emergency Helpline Now
-            </a>
+<section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+    
+    {/* Left Column: Explicitly aligned left */}
+    <div className="space-y-6 text-left flex flex-col items-start">
+      <span className="text-teal-400 font-semibold uppercase tracking-wider text-sm">Get In Touch</span>
+      <h2 className="text-3xl font-bold">Contact Umed Foundation</h2>
+      <p className="text-slate-300">
+        Reach out to our helpline or visit our campus for a confidential discussion. We are here to help 24/7.
+      </p>
+      
+      {/* Contact info rows aligned left with flex */}
+      <div className="space-y-4 pt-4 w-full">
+        <div className="flex items-start gap-4 text-left">
+          <MapPin className="w-6 h-6 text-teal-400 shrink-0 mt-1" />
+          <div>
+            <h4 className="font-semibold">Center Address</h4>
+            <p className="text-slate-300 text-sm">Umed Foundation Rehab Centre, Near Green Valley, Main Highway, India</p>
           </div>
         </div>
-      </section>
+        <div className="flex items-center gap-4 text-left">
+          <Phone className="w-6 h-6 text-teal-400 shrink-0" />
+          <div>
+            <h4 className="font-semibold">Helpline Numbers</h4>
+            <p className="text-slate-300 text-sm">+91 70384 97457</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-4 text-left">
+          <Mail className="w-6 h-6 text-teal-400 shrink-0" />
+          <div>
+            <h4 className="font-semibold">Official Email</h4>
+            <p className="text-slate-300 text-sm">umeddeaddiction@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Right Column: Emergency Card */}
+    <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 space-y-4 text-left">
+      <h3 className="text-xl font-bold text-teal-300">Need Immediate Emergency Intervention?</h3>
+      <p className="text-slate-300 text-sm">
+        If someone is experiencing acute withdrawal symptoms or requires urgent medical assistance, our crisis response team is available round the clock.
+      </p>
+      <a href="tel:+917038497457" className="inline-flex items-center justify-center gap-2 w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition shadow-md">
+        <Phone className="w-5 h-5" /> Call Emergency Helpline Now
+      </a>
+    </div>
+
+  </div>
+</section>
 
       {/* ================= FOOTER ================= */}
       <footer className="bg-slate-950 text-slate-400 py-8 px-4 text-center text-sm border-t border-slate-800">
