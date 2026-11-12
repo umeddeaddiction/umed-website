@@ -36,7 +36,7 @@ export default function App() {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate sending inquiry to info@umedfoundation.org
+    // Simulate sending inquiry to umeddeaddiction@gmail.com
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -73,11 +73,11 @@ export default function App() {
             <span>Confidential Helpline 24/7 Support for Families & Individuals</span>
           </div>
           <div className="flex items-center gap-4 font-semibold">
-            <a href="tel:+919876543210" className="flex items-center gap-1 hover:text-teal-200">
-              <Phone className="w-3.5 h-3.5" /> +91 98765 43210
+            <a href="tel:+917038497457" className="flex items-center gap-1 hover:text-teal-200">
+              <Phone className="w-3.5 h-3.5" /> +91 70384 97457
             </a>
             <span className="hidden sm:inline">|</span>
-            <a href="mailto:info@umedfoundation.org" className="flex items-center gap-1 hover:text-teal-200">
+            <a href="mailto:umeddeaddiction@gmail.com" className="flex items-center gap-1 hover:text-teal-200">
               <Mail className="w-3.5 h-3.5" /> info@umedfoundation.org
             </a>
           </div>
@@ -350,7 +350,7 @@ export default function App() {
           <div className="text-center mb-8 space-y-2">
             <span className="text-teal-600 font-semibold uppercase tracking-wider text-sm">Confidential Consultation</span>
             <h2 className="text-3xl font-bold text-slate-900">Inquiry Form</h2>
-            <p className="text-slate-600 text-sm">Fill out the form below. Your details are securely transmitted to our admission desk at <strong className="text-teal-700">info@umedfoundation.org</strong>.</p>
+            <p className="text-slate-600 text-sm">Fill out the form below. Your details are securely transmitted to our admission desk at <strong className="text-teal-700">umeddeaddiction@gmail.com</strong>.</p>
           </div>
 
           {submitted && (
@@ -384,7 +384,6 @@ export default function App() {
                   required 
                   value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="+91 98765 43210"
                   className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white"
                 />
               </div>
@@ -392,11 +391,11 @@ export default function App() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Email Address *</label>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
                 <input 
                   type="email" 
                   name="email" 
-                  required 
+                   
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="your.email@example.com"
@@ -412,9 +411,7 @@ export default function App() {
                   className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white"
                 >
                   <option value="Alcohol Addiction">Alcohol Addiction</option>
-                  <option value="Drug / Substance Abuse">Drug / Substance Abuse</option>
-                  <option value="Behavioral / Gambling">Behavioral / Gambling</option>
-                  <option value="General Consultation">General Consultation</option>
+                  <option value="Behavioral / Gambling">Behavior Disorder</option>
                 </select>
               </div>
             </div>
@@ -436,7 +433,7 @@ export default function App() {
               disabled={loading}
               className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition shadow-md flex items-center justify-center gap-2"
             >
-              {loading ? 'Sending Inquiry...' : <>Submit Inquiry to info@umedfoundation.org <Send className="w-4 h-4" /></>}
+              {loading ? 'Sending Inquiry...' : <>Submit Inquiry to umeddeaddiction@gmail.com <Send className="w-4 h-4" /></>}
             </button>
           </form>
         </div>
@@ -463,14 +460,14 @@ export default function App() {
                 <Phone className="w-6 h-6 text-teal-400 shrink-0" />
                 <div>
                   <h4 className="font-semibold">Helpline Numbers</h4>
-                  <p className="text-slate-300 text-sm">+91 98765 43210 / +91 91234 56789</p>
+                  <p className="text-slate-300 text-sm">+91 70384 97457 </p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="w-6 h-6 text-teal-400 shrink-0" />
                 <div>
                   <h4 className="font-semibold">Official Email</h4>
-                  <p className="text-slate-300 text-sm">info@umedfoundation.org</p>
+                  <p className="text-slate-300 text-sm">umeddeaddiction@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -480,7 +477,7 @@ export default function App() {
             <p className="text-slate-300 text-sm">
               If someone is experiencing acute withdrawal symptoms or requires urgent medical assistance, our crisis response team is available round the clock.
             </p>
-            <a href="tel:+919876543210" className="inline-flex items-center justify-center gap-2 w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition shadow-md">
+            <a href="tel:+917038497457" className="inline-flex items-center justify-center gap-2 w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition shadow-md">
               <Phone className="w-5 h-5" /> Call Emergency Helpline Now
             </a>
           </div>
